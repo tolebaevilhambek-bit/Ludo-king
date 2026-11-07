@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LudoKar</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #1b1b2f;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    h1 { color: #f5c542; }
+  </style>
+</head>
+<body>
+  <h1>LudoKar 🎲</h1>
+  <p id="user">Yuklanmoqda...</p>
+  <script>
+    const tg = window.Telegram.WebApp;
+    tg.ready();
+    tg.expand();
+    const user = tg.initDataUnsafe.user;
+    document.getElementById("user").textContent =
+      user ? "Salom, " + user.first_name + "!" : "Telegram ichida oching";
+  </script>
+</body>
+</html>
